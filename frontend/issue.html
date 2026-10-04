@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Issue | CivicPulse</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">CivicPulse</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Issues</a>
+        <a href="report.html">Report</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="trust-banner">
+    Community-submitted reports. Unverified and not sent to any authority.
+  </div>
+
+  <main class="container">
+    <p style="margin-bottom: 0.75rem;"><a href="index.html">&larr; All issues</a></p>
+
+    <div class="page-title row row--between">
+      <div class="row">
+        <span class="cat-icon" data-category="streetlight"></span>
+        <div>
+          <h1 id="issue-title">Loading…</h1>
+          <p id="issue-meta"></p>
+        </div>
+      </div>
+      <span id="issue-status" class="badge badge--submitted">…</span>
+    </div>
+
+    <ol id="stepper" class="stepper" aria-label="Progress"></ol>
+
+    <div class="grid grid--2">
+
+      <div class="stack">
+        <div id="map" class="map"></div>
+
+        <section class="card" aria-label="Status history">
+          <h2>Status history</h2>
+          <ul id="status-timeline" class="timeline">
+            <li class="card__meta">Loading…</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="stack">
+        <section class="card" aria-label="Actions">
+          <button type="button" id="affected-btn" class="btn btn--block">🙋 I'm affected too</button>
+          <p class="field__hint">Adds your voice to this issue as another unverified community report.</p>
+          <div class="share-row">
+            <button type="button" id="share-btn" class="btn btn--ghost btn--sm">🔗 Share</button>
+            <a id="wa-btn" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <button type="button" id="copy-btn" class="btn btn--ghost btn--sm">📋 Copy link</button>
+          </div>
+        </section>
+
+        <section class="card" aria-label="Community reports">
+          <h2>Community reports</h2>
+          <p class="card__meta">
+            These are unverified reports from residents. They have not been
+            checked and have not been sent to any authority.
+          </p>
+          <div id="report-list" class="gallery">
+            <p class="card__meta">Loading…</p>
+          </div>
+        </section>
+
+        <a class="btn btn--ghost btn--block" href="report.html">Report a different issue</a>
+
+        <button type="button" id="admin-unlock" class="btn btn--ghost btn--block">🔒 Admin (demo only)</button>
+        <form id="status-form" class="card" novalidate hidden>
+          <h3>Admin: update status</h3>
+          <div class="field">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="submitted">Submitted</option>
+              <option value="under_review">Under review</option>
+              <option value="resolved">Resolved</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="note">Note</label>
+            <textarea id="note" name="note" placeholder="Add a short note about this change."></textarea>
+          </div>
+          <button type="submit" class="btn btn--block">Update</button>
+          <p id="admin-msg" class="field__hint" role="status"></p>
+          <p class="field__hint">Status changes are recorded on CivicPulse only. They do not notify any authority.</p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    CivicPulse is a community tool. It is not affiliated with any government body.
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/issue-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Issues | CivicPulse</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">CivicPulse</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Issues</a>
+        <a href="report.html">Report</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="trust-banner">
+    Community-submitted reports. Unverified and not sent to any authority.
+  </div>
+
+  <main class="container">
+
+    <section class="hero" aria-label="Overview">
+      <div>
+        <h1>See what's wrong on your street</h1>
+        <p>Community-reported local issues, all in one place.</p>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat"><b id="hs-total">–</b><span>Issues</span></div>
+        <div class="hero__stat"><b id="hs-affected">–</b><span>Residents</span></div>
+        <div class="hero__stat"><b id="hs-open">–</b><span>Open</span></div>
+      </div>
+      <a class="btn btn--light" href="report.html">Report an issue</a>
+    </section>
+
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search by reference or category…" aria-label="Search issues" />
+      <select id="filter-category" aria-label="Filter by category">
+        <option value="">All categories</option>
+        <option value="streetlight">💡 Streetlight</option>
+        <option value="bin">🗑 Bin</option>
+        <option value="road">🚧 Road</option>
+        <option value="drain">💧 Drain</option>
+      </select>
+      <select id="filter-status" aria-label="Filter by status">
+        <option value="">All statuses</option>
+        <option value="submitted">Submitted</option>
+        <option value="under_review">Under review</option>
+        <option value="resolved">Resolved</option>
+      </select>
+      <select id="sort" aria-label="Sort issues">
+        <option value="newest">Newest first</option>
+        <option value="affected">Most affected</option>
+      </select>
+    </div>
+
+    <div class="view-tabs" role="tablist" aria-label="View">
+      <button type="button" class="view-tab is-active" data-view="list" role="tab" aria-selected="true">📋 List</button>
+      <button type="button" class="view-tab" data-view="map" role="tab" aria-selected="false">🗺 Map</button>
+    </div>
+
+    <div id="state" class="placeholder" hidden></div>
+    <p id="result-count" class="result-count" aria-live="polite"></p>
+
+    <div class="split" data-view="list">
+      <section id="issue-list" class="split__list" aria-label="Issue list"></section>
+      <div id="map" class="map split__map"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    CivicPulse is a community tool. It is not affiliated with any government body.
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/issues-page.js"></script>
+</body>
+</html>

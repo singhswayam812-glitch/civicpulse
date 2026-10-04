@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Report an issue | CivicPulse</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">CivicPulse</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html">Issues</a>
+        <a href="report.html" aria-current="page">Report</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="trust-banner">
+    Community-submitted reports. Unverified and not sent to any authority.
+  </div>
+
+  <main class="container">
+    <div class="page-title">
+      <h1>Report an issue</h1>
+      <p>Tell your community about a problem nearby.</p>
+    </div>
+
+    <div class="grid grid--2" id="report-grid">
+
+      <form id="report-form" class="card" novalidate>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Choose a category</option>
+            <option value="streetlight">💡 Streetlight</option>
+            <option value="bin">🗑 Bin</option>
+            <option value="road">🚧 Road</option>
+            <option value="drain">💧 Drain</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" name="description"
+                    placeholder="What is the problem? Add any helpful detail."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="photo">Photo (optional)</label>
+          <input id="photo" name="photo" type="file" accept="image/*" />
+          <img id="photo-preview" class="preview" alt="Preview of selected photo" hidden />
+          <div class="field__hint">A clear photo helps neighbours recognise the issue.</div>
+        </div>
+
+        <div class="field">
+          <label>Location</label>
+          <div id="location-display" class="field__hint">
+            Tap the map to drop a pin, or use your current location.
+          </div>
+          <button type="button" id="use-location" class="btn btn--ghost">📍 Use my location</button>
+          <input type="hidden" id="lat" name="lat" />
+          <input type="hidden" id="lng" name="lng" />
+        </div>
+
+        <button type="submit" class="btn btn--block">Submit report</button>
+
+        <p class="field__hint" style="margin-top: 0.75rem; margin-bottom: 0;">
+          Reports are shared on CivicPulse as unverified community input.
+          Submitting here does not send anything to any authority.
+        </p>
+      </form>
+
+      <div class="stack">
+        <div id="map" class="map map--tall"></div>
+      </div>
+
+    </div>
+
+    <section id="success" class="card success" hidden></section>
+  </main>
+
+  <footer class="site-footer">
+    CivicPulse is a community tool. It is not affiliated with any government body.
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/report-page.js"></script>
+</body>
+</html>
