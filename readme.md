@@ -67,7 +67,7 @@ netlify.toml        tells Netlify to publish the frontend folder
 
 | Member | Role |
 | --- | --- |
-| Unnati Bajpai | Frontend |
+| Unnati Bajpai | Frontend -https://github.com/unnati418vs |
 | Swayam Singh | Backend and database |
 
 
